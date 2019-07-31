@@ -18,7 +18,7 @@ public class UseCaseTest {
 
   private UseCase useCase;
   @Before
-  public void setUp() throws Exception {
+  public void setUp() {
     useCase = new UseCase();
   }
 
@@ -42,6 +42,8 @@ public class UseCaseTest {
     assertNotEquals(complexDomain.getData1().getCreatedAt(), anotherComplexDomain.getData1().getCreatedAt());
     assertNotEquals(complexDomain.getData1().getValueInCents(), anotherComplexDomain.getData1().getValueInCents());
     assertEquals(complexDomain.getData2(), anotherComplexDomain.getData2());
+    assertNull(complexDomain.getData3());
+    assertNotNull(anotherComplexDomain.getData3());
 
     log.info("Complex domain hashcode {}, Another complex domain hashcode {}", complexDomain.hashCode(), anotherComplexDomain.hashCode());
     log.info("Simple data 1 hashcode {}, another simple data 1 hashcode {}", complexDomain.getData1().hashCode(), anotherComplexDomain.getData1().hashCode());
